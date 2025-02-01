@@ -1,0 +1,112 @@
+\# Program start time:     UTC 2025.02.01 13:58:46.206
+\# Local time: GMT (UTC+00:00) 2025.02.01 13:58:46.206
+\o Program:		@(#)$CDS: virtuoso version IC23.1-64b 01/09/2024 22:32 (cpgbld15) $
+\o Hierarchy:		/home/cad/software/cadence/installs/IC231/tools.lnx86/dfII/
+\o Sub version:		sub-version  IC23.1-64b.ISR4.51  (64-bit addresses)
+\# Command line:	/home/cad/software/cadence/ic/tools.lnx86/dfII/bin/64bit/virtuoso -beanhost sol -beanport 11423 -beanbinlog  -beanLogFile /home/ayadav/PDK/gpdk045_v_6_0/logs_ayadav/logs0/amps_Service1.log -mpssession virtuoso22780 -mpshost sol -davinciService DaVinciService_22780_1738418322 -axlSession fnxSession0 -axlServiceIdFlag 1 -uuid 626a892b-0f33-4a7a-b84d-784a1aea5eb2 -heartbeat /dev/shm/swift-heartbeat.x3afKmOmta -log /home/ayadav/PDK/gpdk045_v_6_0/logs_ayadav/logs0/Service1.log -adeBrokerAddress sol:35960 -noautostart -nographE -lscs 000175E1894CBE06FF0966E38F1FFC06BC4D66F1EE66FC06DD3B0AE3FC70FC06BC4D5CD6BF31CC28867866E3BF1FFC06BC4D66E38F1FFC06BC4D017DA78BD492DBD300001EA9 -interactive -offlineExprEval -upfrontMode -fenixMode explorer -heartbeatTimeout  -lingerTimeout 300 -pointlifetime -1
+\# Host name (type):	sol (x86_64)
+\# Operating system:	Linux 3.10.0-1127.13.1.el7.x86_64 #1 SMP Tue Jun 23 15:46:38 UTC 2020
+\# Linux /etc/issue:	\S
+\# Linux /etc/issue:	Kernel \r on an \m
+\# X display name (WxH):	:7537 (1024x868)
+\# Available geometry:			TL(0:0) BR(1023:867)
+\# X server:			The X.Org Foundation
+\# Depth of Visual (Root):	24 (24)
+\# Number of Planes Used:	24
+\# X version:		11.0 (vendor release 12004000)
+\# X resource pool:	base 0x400000, mask 0x1fffff (2097151), shift 0
+\# 			current id 0x0, current max 0x1ffffa (2097146)
+\# Max data seg size:	     unlimited
+\# Max process size:	     unlimited
+\# Initial sbrk value:	        724 MB
+\# Available memory:	     19,544 MB
+\# System memory:	     48,254 MB
+\# Maximum memory size:	     47,799 MB
+\# Max mem available:	     19,812 MB
+\# Initial memory used:	        268 MB
+\#        process size:	      1,664 MB
+\# Thread usage limits (effective/default):	maxthreads 4096/4096 maxload 6.00/6.00
+\# Qt version:		5.15.9
+\# Window Manager:	other
+\# User Name:		ayadav
+\o Working Directory:	sol:/home/ayadav/PDK/gpdk045_v_6_0
+\# Process Id:		25316
+\o 
+\o COPYRIGHT (C) 1992-2023  CADENCE DESIGN SYSTEMS INC.  ALL RIGHTS RESERVED.
+\o           (C) 1992-2023  UNIX SYSTEMS Laboratories INC.,
+\o                          Reproduced with permission.
+\o 
+\o This Cadence Design Systems program and online documentation are
+\o proprietary/confidential information and may be disclosed/used only
+\o as authorized in a license agreement controlling such use and disclosure.
+\o 
+\o           RESTRICTED RIGHTS NOTICE (SHORT FORM)
+\o Use/reproduction/disclosure is subject to restriction
+\o set forth at FAR 1252.227-19 or its equivalent.
+\o Loading geView.cxt 
+\o Loading menuBuilder.cxt 
+\o Loading schView.cxt 
+\o Loading selectSv.cxt 
+\o Loading wireEdit.cxt 
+\o Loading pte2.cxt 
+\o Loading xlUI.cxt 
+\o Loading auCore.cxt 
+\o Loading vhdl.cxt 
+\o Loading seismic.cxt 
+\o Loading ci.cxt 
+\o Loading layers.cxt 
+\o Loading drv.cxt 
+\o Loading ams.cxt 
+\o Loading oasis.cxt 
+\o Loading dal.cxt 
+\o Loading awv.cxt 
+\# Memory report: using         369 MB, process size 1,770 MB at UTC 2025.02.01 13:58:47.098
+\o Loading socket.cxt 
+\o Loading analog.cxt 
+\o Loading par.cxt 
+\o Loading asimenv.cxt 
+\o Loading alvs.cxt 
+\o Loading caa.cxt 
+\o Loading amps.cxt 
+\o Loading adexlCore.cxt 
+\o Loading adexl.cxt 
+\o *Info*    Exporting services from client ... 
+\o 
+\o Loading adexlDM.cxt 
+\o Loading cpf.cxt 
+\o Loading cli.cxt 
+\o Loading lp.cxt 
+\o Loading sipLayout.cxt 
+\o Loading diagCenter.cxt 
+\o INFO (ELI-00333) Client process connection mode is LSCS.
+\# [13:58:46.414169] Configured Lic search path (23.02-s003): 27000@lynx
+\p > 
+\o Loading le.cxt 
+\o Loading tilp.cxt 
+\o Loading validator.cxt 
+\o Loading vrf.cxt 
+\o Loading multiTechPlugin.cxt 
+\o Loading exportDie.cxt 
+\# Loading perfDiag...
+\# (PerfDiag): Set GDB path to environment variable 'gdbPath' (gdb).
+\# The Health Monitor tool is installed. You can access it from CIW - Tools - Diagnostic Center or use the shell command 'cdsPerfDiag -p 25316' to open it when Virtuoso freezes.
+\# (PerfDiag): Use backtrace from GLIBC.
+\i _axlRunServices()
+\o Loading simui.cxt 
+\o [2025-02-01 13:58:48.865 Z] [PROCESS] [cadence.virtuoso.ade.services] - Netlist Service has successfully started. Waiting for incoming messages ... {"jobid": "1", "hostname": "sol", "processid": 25316, "logfile": "/home/ayadav/PDK/gpdk045_v_6_0/logs_ayadav/logs0/Service1.log"}
+\# Memory report: using         775 MB, process size 2,218 MB at UTC 2025.02.01 13:58:50.909
+\# Available memory:         19,369 MB at UTC 2025.02.01 13:58:58.921
+\# Memory report: Maximum memory size now 20,144 MB at UTC 2025.02.01 13:58:58.921
+\# Thread usage report: 8 active threads, active load 1.40 at UTC 2025.02.01 13:58:58.921
+\# Memory report: Maximum memory size now 20,607 MB at UTC 2025.02.01 14:00:27.010
+\o [2025-02-01 14:01:34.046 Z] [PROCESS] [cadence.virtuoso.ade.services.netlister] - Netlist Service process exits. {"jobid": "1", "hostname": "sol", "processid": 25316, "logfile": "/home/ayadav/PDK/gpdk045_v_6_0/logs_ayadav/logs0/Service1.log"}
+\o 
+\o Loading vdsil.cxt 
+\o *Info*    Received signal SIGTERM.
+\o 
+\o 
+\# Lic Summary:
+\# [14:01:37.511834] Cdslmd servers:27000@lynx
+\# [14:01:37.511851] Feature usage summary:
+\# Memory report: on exit            775 MB, process size 2,218 MB at UTC 2025.02.01 14:01:37.511
+\# Memory report: peak usage         775 MB, process size 2,218 MB

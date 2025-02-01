@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      ayadav
+HostName                       sol.Pragmatic.local
+ProcessIdentifier              23593
+ProcessCreationTime_UTC        1738415124
+ProcessCreationTime_Readable   Sat Feb  1 13:05:24 2025 GMT
+AppIdentifier                  /home/cad/software/cadence/ic/tools.lnx86/dfII/bin/64bit/virtuoso
+OSType                         lnx86
+ReasonForPlacingEditLock       
+FilePathUsedToEditLock         /home/ayadav/PDK/gpdk045_v_6_0/reliability/osc13/maestro/maestro.sdb
+TimeEditLocked                 Sat Feb  1 13:05:44 2025 GMT

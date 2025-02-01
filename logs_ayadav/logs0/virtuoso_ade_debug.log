@@ -1,0 +1,5 @@
+[ADE GUI: 22780]
+[2025-02-01 13:58:44.236 Z] [PROCESS] [cadence.virtuoso.ade.gui] - /home/ayadav/PDK/gpdk045_v_6_0/.tmp_ayadav/.cmddir0/swiftLoggingService0 is starting {"logfile": "/home/ayadav/PDK/gpdk045_v_6_0/logs_ayadav/logs0/LoggingService0.log"}
+[2025-02-01 13:58:44.349 Z] [PROCESS] [cadence.virtuoso.ade.gui] - /home/ayadav/PDK/gpdk045_v_6_0/.tmp_ayadav/.cmddir0/swiftNetlistService1 is starting {"logfile": "/home/ayadav/PDK/gpdk045_v_6_0/logs_ayadav/logs0/Service1.log"}
+[2025-02-01 13:58:44.349 Z] [PROCESS] [cadence.virtuoso.ade.gui] - Logging Service '25189' is starting up on host 'sol' {"logfile": "/home/ayadav/PDK/gpdk045_v_6_0/logs_ayadav/logs0/LoggingService0.log"}
+[2025-02-01 13:58:45.545 Z] [PROCESS] [cadence.virtuoso.ade.gui] - Netlist Service '25215' is starting up on host 'sol' {"logfile": "/home/ayadav/PDK/gpdk045_v_6_0/logs_ayadav/logs0/Service1.log"}

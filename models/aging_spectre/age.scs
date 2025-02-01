@@ -1,0 +1,99 @@
+simulator lang = spectre
+
+// ************************************************************
+//  Reliability model:  Statistical Corner 
+// ************************************************************
+parameters dai=0
+parameters dbi=0
+parameters dm0=0
+parameters dnbeta0=0
+
+statistics{
+    process{
+         vary dai  dist=gauss std=0.02 
+         vary dbi  dist=gauss std=0.013 
+         vary dm0  dist=gauss std=0.009 
+         vary dnbeta0  dist=gauss std=0.0115 
+    }
+}
+parameters nmos_ai=2.1E+06*(1+dai)
+parameters nmos_bi=1.7E+06*(1+dbi)
+parameters nmos_m0=2.85*(1+dm0)
+
+parameters pmos_ai=9.5437E+04*(1+dai)
+parameters pmos_bi=3.7E+06*(1+dbi)
+parameters pmos_m0=1.46336*(1+dm0)
+parameters pmos_dnbeta0=6.0999E-04*(1+dnbeta0)
+
+
+simulator lang = spice
+// ************************************************************
+//  Reliability model:  NMOS HCI 
+// ************************************************************
+*relxpert: .agemodel nmos agelevel = 0
+*relxpert: + sf=2 
+*relxpert: + ai = nmos_ai bi = nmos_bi  ecrit0 = 1.9063E+04 ecritg = 22
+*relxpert: + ecritb = 0 ecritd = 2.6111E+04 lc0 = 1.32 lc1 = 0
+*relxpert: + lc2 = 0 eai = -0.045 nn0 = 0.40018 wg = 0
+*relxpert: + h0 = 1.6E+04 hgd = 0
+*relxpert: + m0 = nmos_m0 mgd = -0.5 mgd1 = 0.19325
+*relxpert: + lai = 1.2E+04   wai = -4E+04 lecrit0 = -495.78 lm0 = 0.0102
+*relxpert: + vth0 = [ 1.6,  0,  0.39,  0.001,  1,  1  ]
+*relxpert: + vsat = [ 0.2,  0.4,  0.42,  0.001,  1,  -1  ]
+*relxpert: + ub = [ 0.18,  0,  0.42,  0.001,  1,  1  ]
+*relxpert: + voff = [ 0.3,  0,  0.4,  0.001,  1,  -1  ]
+*relxpert: + a0 = [ 0.35,  0,  0.4,  0.001,  1,  1  ]
+*relxpert: + lpe0 = [ 0.4,  1.2,  0.4,  0.001,  1,  -1  ]
+*relxpert: + vbs_h = [  -0.09      -0.06     0]
+*relxpert: + vbs_m = [  0           0         0]
+*relxpert: + vbs_n = [  0           0         0]
+*relxpert: + vbs_v = [ -1.21       -0.6       0]
+
+*************************************************************
+* Reliability model:  PMOS HCI 
+*************************************************************
+*relxpert: .agemodel pmos agelevel = 0
+*relxpert: + sf=2 
+*relxpert: + ai = pmos_ai bi = pmos_bi ecrit0 = 5.673E+04 ecritg = 0
+*relxpert: + ecritb = 0 ecritd = 0 lc0 = 1.25 lc1 = -0.33
+*relxpert: + lc2 = 0.05 eai = 0.0372 nn0 = 0.33 wg = 0
+*relxpert: + h0 = 4219.82 lai = 0 lh0=104
+*relxpert: + m0 = pmos_m0 mgd = 0.41991 mgd1 = 0.23069 mgd2 = -0.03865
+*relxpert: + llc0 = -0.027 lm0 = 0.01257 lmgd1= 0.001 lmgd2=-0.002 
+*relxpert: + eta0 = [ 0,     0,    0.3,    0.01,  1,  1  ]
+*relxpert: + ub =   [ 0.25,  2.5,  0.5,    0.01,  1,  1  ]
+*relxpert: + voff = [ 2.5,   6.8,  0.55,   0.01,  1,  1  ]
+*relxpert: + vsat = [ 3,     4,    0.395,  0.01,  1,  1  ]
+*relxpert: + vth0 = [ 1.5,   6,   0.53,   0.01,  1,  1  ]
+*relxpert: + a0 =   [ 0,     0,    0.55,   0.01,  1,  1  ]
+*relxpert: + vbs_v = [ -2.7 -1.8  -1.35  -0.9  0  ]
+*relxpert: + vbs_h = [ -1178 -1178  -1178  -1178  0  ]
+*relxpert: + vbs_m = [ -1 -1  -0.6  -0.25  0  ]
+*relxpert: + vbs_n = [ 0  0  0  0  0  ]
+
+*************************************************************
+* Reliability model:  PMOS NBTI 
+*************************************************************
+*relxpert: .agemodel pmos agelevel = 1
+*relxpert: + nbemod = 2 nbn = 0.055 nba = 9.2338E+02 nbea = 0.10558 nbgamma = 1.84914
+*relxpert: + nbgammad = 1.0948 nbalpha = 0  nbeta0 = pmos_dnbeta0 nbeta1 = 0.86028 nbeta2 = -2.31493
+*relxpert: + lnba=-0.4308 wnba=7E+03 lnbgammad=-0.09 
+*relxpert: + vth0 = [ 1.15,  0,  0.155,  0.001,  1,  1    ]
+*relxpert: + vsat = [ 0.3,  1,  0.155,  0.001,  1,  1    ]
+*relxpert: + ags = [ 0.9,  1,  0.155,  0.001,  1,  -1    ]
+*relxpert: + u0 = [ 0.07,  1,  0.155,  0.001,  1,  1    ]
+*relxpert: + rdsw = [ 3.3,  5,  0.155,  0.001,  1,  -1    ]
+*relxpert: + lpe0 = [ 3,  5,  0.155,  0.001,  1,  1    ]
+*************************************************************
+* Reliability model:  NMOS Selfheating 
+*************************************************************
+*relxpert: .agemodel nmos agelevel = 3
+*relxpert: +Rth0=1.45e-1  Cth0=1.547e-9
+
+*************************************************************
+* Reliability model:  PMOS Selfheating 
+*************************************************************
+*relxpert: .agemodel pmos agelevel = 3
+*relxpert: +Rth0=2.67e-1  Cth0=2.245e-9
+
+simulator lang = spectre

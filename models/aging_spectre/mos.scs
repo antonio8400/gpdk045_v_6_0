@@ -1,0 +1,433 @@
+//
+parameters du0=0
+parameters ddtox=0
+
+statistics{
+    process{
+         vary du0  dist=gauss std=0.0095 
+         vary ddtox  dist=gauss std=0.0134 
+    }
+}
+
+
+model nmos bsim4 
++ type=n 
++ version=4.5               binunit=2
++ paramchk=1                mobmod=0                  capmod=2
++ igcmod=1                  igbmod=1                  diomod=1
++ rdsmod=0                  rbodymod=0                rgatemod=0
++ permod=1                  acnqsmod=0                trnqsmod=0
++ tempmod=0                 tnom=25                   toxe=2.43e-09*(1+ddtox)
++ toxm=2.43e-09*(1+ddtox)             dtox=4e-10                epsrox=3.9
++ wint=0                    lint=0                    ll=0
++ wl=0                      lln=1                     wln=1
++ lw=0                      ww=0                      lwn=1
++ wwn=1                     lwl=0                     wwl=0
++ llc=0                     wlc=0                     lwc=0
++ wwc=0                     lwlc=0                    wwlc=0
++ xl=0                      xw=6e-09                  dlc=4.72286e-09
++ dwc=0                     xpart=1                   toxref=3e-09
++ dlcig=2.5e-09             vth0=0.318                lvth0=-3.5e-09
++ wvth0=0                   pvth0=2.394e-16           k1=0.30264
++ k2=-0.1394925             lk2=1.00901e-08           wk2=1.1569005e-08
++ pk2=-3.449754e-16         k3=-4.989486              k3b=4.026334
++ w0=0                      dvt0=0.32                 dvt1=0.6
++ dvt2=-0.25                dvt0w=0                   dvt1w=0
++ dvt2w=0                   dsub=0.2559               minv=-0.15
++ voffl=0                   dvtp0=2.2e-06             dvtp1=4.5
++ lpe0=1.2e-07              lpeb=1e-08                xj=8.6e-08
++ ngate=1.6e+20             ndep=1e+17                nsd=1e+20
++ phin=0                    cdsc=0                    cdscb=0
++ cdscd=0                   cit=-0.03087875           lcit=1.55831e-09
++ wcit=4.0632165e-09        pcit=-1.7210466e-16       voff=0.26609
++ lvoff=-2.3186e-08         wvoff=-5.594778e-08       pvoff=2.666916e-15
++ nfactor=1                 eta0=0.05525              leta0=-2.325e-09
++ weta0=-6.5835e-09         peta0=2.9925e-16          etab=0.065493986
++ letab=-3.5154594e-09      wetab=-9.02538e-09        petab=4.51269e-16
++ ud=0                      lud=0                     wud=0
++ pud=0                     u0=0.007912*(1+du0)               lu0=4.352e-11
++ wu0=0                     pu0=0                     ua=-1.90742e-08
++ lua=8.5991e-16            wua=2.1311388e-15         pua=-1.0655694e-22
++ ub=2.658245e-17           lub=-1.23502e-24          wub=-3.1726485e-24
++ pub=1.570464e-31          uc=1.51875e-09            luc=-5.595e-17
++ wuc=-2.124675e-16         puc=8.4987e-24            vsat=73750
++ lvsat=0.00265             wvsat=0.0029925           pvsat=-1.197e-10
++ a0=63.3122                la0=-3.16956e-06          wa0=-8.0711316e-06
++ pa0=4.2139188e-13         ags=-66.62                lags=3.381e-06
++ wags=7.70868e-06          pags=-3.85434e-13         a1=0
++ a2=1                      b0=0                      b1=0
++ keta=0.02                 lketa=-3e-09              dwg=0
++ dwb=0                     pclm=1                    pdiblc1=0
++ pdiblc2=0.0011             pdiblcb=1                 drout=0.56
++ pvag=1.2                  delta=0.007595625         pscbe1=1e+09
++ pscbe2=1e-20              fprout=300                pdits=0
++ pditsd=0                  pditsl=0                  rsh=17.5
++ rdsw=100                  prwg=0                    prwb=0
++ wr=1                      alpha0=2e-10              alpha1=0.01
++ beta0=6.4                 agidl=2.1505e-07          bgidl=2.1392e+09
++ cgidl=0.22                egidl=0.29734             aigbacc=0.02
++ bigbacc=0.002588          cigbacc=0.32875           nigbacc=10
++ aigbinv=0.0163            bigbinv=0.004953          cigbinv=0.006
++ eigbinv=1.1               nigbinv=10                aigc=0.011483447
++ laigc=-1.1646e-12         waigc=0                   paigc=0
++ bigc=0.001442             cigc=0.000625             aigsd=0.013922
++ laigsd=-1.254e-10         waigsd=-3.16008e-10       paigsd=1.58004e-17
++ bigsd=0.00125             cigsd=0.069865            nigc=3.083
++ poxedge=1                 pigcd=2.621               ntox=1
++ xrcrg1=12                 xrcrg2=1                  vfbsdoff=0.02
++ lvfbsdoff=0               wvfbsdoff=0               pvfbsdoff=0
++ cgso=5.68879e-11          cgdo=5.68879e-11          cgbo=0
++ cgdl=1.78789e-11          cgsl=1.78789e-11          clc=1e-07
++ cle=0.6                   cf=8.54e-11               ckappas=0.6
++ ckappad=0.6               acde=0.4                  moin=5.8317
++ noff=3.046                voffcv=-0.11527           tvoff=-0.000536864
++ ltvoff=1.151432e-10       wtvoff=0                  ptvoff=0
++ tvfbsdoff=0.022           ltvfbsdoff=0              wtvfbsdoff=0
++ ptvfbsdoff=0              kt1=0.13764               lkt1=-1.8431e-08
++ wkt1=-6.341706e-08        pkt1=2.98053e-15          kt1l=0
++ kt2=-0.13065              lkt2=2.706e-09            ute=-1
++ ua1=-1.955772e-09         lua1=7.56636e-17          wua1=3.4671823e-16
++ pua1=-1.3445662e-23       ub1=4.92561e-18           lub1=-2.68515e-25
++ wub1=-7.0074774e-25       pub1=3.443769e-32         uc1=2.32242e-09
++ luc1=-1.190968e-16        wuc1=-2.5539192e-16       puc1=1.3567277e-23
++ prt=0                     at=195000                 lat=-0.002
++ wat=-0.01197              pat=0                     jss=7e-07
++ jsd=1e-06                 jsws=1e-12                jswd=1e-12
++ jswgs=1e-12               jswgd=1e-12               njs=1
++ njd=1                     ijthsfwd=0.01             ijthdfwd=0.01
++ ijthsrev=0.01             ijthdrev=0.01             bvs=9
++ bvd=9                     xjbvs=1                   xjbvd=1
++ jtsswgs=3.2e-07           jtsswgd=3.2e-07           njtsswg=9.6408
++ xtsswgs=0.21              xtsswgd=0.21              tnjtsswg=1
++ vtsswgs=1.8               vtsswgd=1.8               pbs=0.63
++ pbd=0.63                  cjs=0.001329              cjd=0.001329
++ mjs=0.31                  mjd=0.31                  pbsws=0.8
++ pbswd=0.8                 cjsws=8.3e-11             cjswd=8.3e-11
++ mjsws=0.01                pbswgs=0.7                pbswgd=0.7
++ cjswgs=2.41e-10           cjswgd=2.41e-10           mjswgs=0.75
++ mjswgd=0.75               mjswd=0                   tpb=0.0011
++ tcj=0.000652              tpbsw=0.0019              tcjsw=0.000357
++ tpbswg=0.001              tcjswg=0.0015             xtis=3
++ xtid=3                    dmcg=4e-08                dmci=4e-08
++ dmdg=0                    dmcgt=0                   dwj=0
++ xgw=0                     xgl=-9.73e-09             rshg=15.5
++ gbmin=1e-12               rbpb=50                   rbpd=50
++ rbps=50                   rbdb=50                   rbsb=50
++ ngcon=1                   fnoimod=1                 noia=2.51e+42
++ noib=1.52e+21             noic=3e+08                em=1000000
++ ef=0.95                   tnoimod=0                 lintnoi=-5e-09
++ minr=1e-3
+
+model pmos bsim4  
++type=p
++version = 4.5
++binunit = 2
++paramchk = 1
++mobmod = 0
++capmod = 2
++igcmod = 0
++igbmod = 0
++diomod = 1
++rdsmod = 0
++rbodymod = 0
++rgatemod = 0
++permod = 1
++acnqsmod = 0
++trnqsmod = 0
++tempmod = 0
++tnom = 25
++toxe = 3.65e-09*(1+ddtox)
++toxm = 3.65e-09*(1+ddtox)
++dtox = 3.117e-10
++epsrox = 3.9
++wint = 0
++lint = 0
++ll = 0
++wl = 0
++lln = 1
++wln = 1
++lw = 0
++ww = 0
++lwn = 1
++wwn = 1
++lwl = 0
++wwl = 0
++llc = 0
++wlc = 0
++lwc = 0
++wwc = 0
++lwlc = 0
++wwlc = 0
++xl = -5e-09
++xw = 0
++dlc = 1.88618e-08
++dwc = 0
++xpart = 1
++toxref = 3e-09
++dlcig = 2.5e-09
++vth0 = -0.34123458
++lvth0 = -1.1098765e-08
++wvth0 = -2.0987654e-09
++pvth0 = 1.4320988e-15
++k1 = 0.33936
++k2 = 0.011506296
++lk2 = 8.4604815e-09
++wk2 = -8.0062963e-09
++pk2 = 1.6895185e-15
++k3 = -0.87
++k3b = 1.43
++w0 = 0
++dvt0 = 1.5
++dvt1 = 0.2746
++dvt2 = -0.15
++dvt0w = 0
++dvt1w = 0
++dvt2w = 0
++dsub = 0.33
++minv = -0.3
++voffl = 2.7515e-10
++dvtp0 = 0
++dvtp1 = 0.009668
++lpe0 = 9.798e-08
++lpeb = 0
++xj = 6.1e-08
++ngate = 3e+20
++ndep = 6e+17
++nsd = 1e+20
++phin = 0.1
++cdsc = 0
++cdscb = 0
++cdscd = 0
++cit = -0.00055303694
++lcit = 1.8249592e-10
++wcit = -1.4740741e-10
++pcit = 1.3318519e-17
++voff = -0.057236296
++lvoff = -1.0609704e-08
++wvoff = -2.3937037e-08
++pvoff = 3.727037e-15
++nfactor = 1
++lnfactor = 0
++wnfactor = 0
++pnfactor = 0
++eta0 = 0.12222222
++leta0 = -3.2222222e-09
++weta0 = 0
++peta0 = 0
++etab = -0.05517063
++letab = 1.3962963e-12
++wetab = 9.6296296e-11
++petab = -1.3962963e-17
++ud = 0
++lud = 0
++wud = 0
++pud = 0
++u0 = 0.010824*(1+du0)
++lu0 = 0
++wu0 = 0
++pu0 = 0
++ua = -6.0161919e-10
++lua = -8.615859e-18
++wua = 4.0692462e-16
++pua = 7.085316e-24
++ub = 1.9422432e-18
++lub = 5.1766791e-26
++wub = -8.0454323e-25
++pub = -4.0456791e-32
++uc = 3.7009273e-10
++luc = -2.5162262e-17
++wuc = -1.3427951e-16
++puc = 8.2578395e-24
++vsat = 83276.334
++lvsat = 0.0013190335
++wvsat = -0.036674321
++pvsat = 2.9207655e-09
++a0 = 1.7872916
++la0 = -2.6928472e-07
++wa0 = -1.5095136e-06
++pa0 = 1.5650694e-13
++ags = 0.39176163
++lags = 3.0460596e-09
++wags = 1.2762187e-06
++pags = -1.4984409e-13
++a1 = 0
++a2 = 1
++b0 = 0
++b1 = 0
++keta = -0.091114237
++lketa = 9.6270792e-09
++wketa = -4.6565679e-08
++pketa = 5.1409124e-15
++dwg = 0
++dwb = 0
++pclm = 1.3932094
++lpclm = -1.1904317e-07
++wpclm = 5.123458e-07
++ppclm = -3.401235e-14
++pdiblc1 = 0
++pdiblc2 = 0.001014814
++lpdiblc2 = 2.1481481e-10
++wpdiblc2 = 1.4814814e-09
++ppdiblc2 = -2.148148e-16
++pdiblcb = 0
++drout = 0.56
++pvag = 0
++delta = 0.01
++pscbe1 = 9.264e+08
++pscbe2 = 1e-20
++fprout = 100
++pdits = 0
++pditsd = 0
++pditsl = 0
++rsh = 15.74
++rdsw = 200
++prwg = 0
++prwb = 0
++wr = 1
++alpha0 = 1.3559e-08
++alpha1 = 2.1787
++beta0 = 19.106
++agidl = -1.0344948e-09
++lagidl = 1.5636085e-16
++wagidl = 1.0792718e-15
++pagidl = -1.5636084e-22
++bgidl = 1.6305e+09
++cgidl = 4.6235
++egidl = 0.081
++aigbacc = 0.01
++bigbacc = 0.006109
++cigbacc = 0.2809
++nigbacc = 4.05
++aigbinv = 0.35
++bigbinv = 0.03
++cigbinv = 0.006
++eigbinv = 1.1
++nigbinv = 1
++aigc = 0.009898
++bigc = 0.001383
++cigc = 1.515e-05
++aigsd = 0.009374
++bigsd = 0.0004353
++cigsd = 3.925e-20
++nigc = 1
++poxedge = 1
++pigcd = 1.672
++ntox = 1
++xrcrg1 = 12
++xrcrg2 = 1
++cgso = 4.2847e-11
++cgdo = 4.2847e-11
++cgbo = 0
++cgdl = 1.39378e-10
++cgsl = 1.39378e-10
++clc = 1e-07
++cle = 0.6
++cf = 7.7e-11
++ckappas = 0.6
++ckappad = 0.6
++acde = 0.46708
++moin = 7.0226
++noff = 2.0283
++voffcv = -0.068752
++tvoff = 0.00249823
++ltvoff = 0
++wtvoff = -2.36333e-10
++ptvoff = 0
++kt1 = -0.22898445
++lkt1 = 6.4444444e-09
++wkt1 = 1.1e-14
++pkt1 = 0
++kt1l = 0
++kt2 = -0.045632444
++wkt2 = 6.0044444e-09
++ute = -0.5
++ua1 = 9.0189494e-10
++lua1 = 7.1604938e-17
++wua1 = 4.4060494e-16
++pua1 = -7.1604938e-23
++ub1 = -4.5758517e-19
++lub1 = -5.3703704e-27
++wub1 = -4.2594817e-25
++pub1 = 5.3703704e-32
++uc1 = 9.8715999e-11
++wuc1 = 1.1111114e-24
++prt = 0
++at = -156118.11
++lat = 0.0116
++wat = 0.039071109
++pat = 0
++jss = 2.35e-07
++jsd = 2.35e-07
++jsws = 1.08e-12
++jswd = 1.08e-12
++jswgs = 1.08e-12
++jswgd = 1.08e-12
++njs = 1.02
++njd = 1.02
++ijthsfwd = 0.01
++ijthdfwd = 0.01
++ijthsrev = 0.01
++ijthdrev = 0.01
++bvs = 6.7
++xjbvs = 1
++xjbvd = 1
++bvd = 6.7
++jtsswgs = 1e-08
++jtsswgd = 1e-08
++njtsswg = 36.742
++xtsswgs = 0.06
++xtsswgd = 0.06
++tnjtsswg = 2
++vtsswgs = 1
++vtsswgd = 1
++pbs = 0.77
++pbd = 0.77
++cjs = 0.002058
++cjd = 0.002058
++mjs = 0.39
++mjd = 0.39
++pbsws = 0.3
++pbswd = 0.3
++cjsws = 7.4e-11
++cjswd = 7.4e-11
++mjsws = 0.09
++mjswd = 0.09
++pbswgs = 0.85
++pbswgd = 0.85
++cjswgs = 1.4e-10
++cjswgd = 1.4e-10
++mjswgs = 0.49
++mjswgd = 0.49
++tpb = 0.0013
++tcj = 0.000758
++tpbsw = 0.0009
++tcjsw = 0.000357
++tpbswg = 0.002
++tcjswg = 0.0012
++xtis = 3
++xtid = 3
++dmcg = 6.75e-08
++dmci = 6.75e-08
++dmdg = 0
++dmcgt = 0
++dwj = 0
++xgw = 0
++xgl = 1.13e-08
++rshg = 13.19
++gbmin = 1e-12
++rbpb = 50
++rbpd = 50
++rbps = 50
++rbdb = 50
++rbsb = 50
++ngcon = 1
++rsw = 0
++rdw = 0
++fnoimod = 1
++noia = 2e+42
++noib = 1e+23
++noic = 1e+09
++em = 1000000
++ef = 1.15
++tnoimod = 0
+

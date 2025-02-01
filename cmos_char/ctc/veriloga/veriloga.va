@@ -1,0 +1,35 @@
+`include "constants.h"  
+`include "disciplines.h"
+
+ 
+module SONOS_Cell (D, G, S, B);
+inout D, G, S, B;  
+electrical D, G, S, B;
+parameter real Vth_initial = 0.3;  // Initial threshold voltage
+parameter real Vth_shift = 0.1;    // Threshold voltage shift due to trapped charge
+parameter real C_ox = 1e-8;        // Oxide capacitance per unit area
+parameter real C_nitride = 5e-9;   // Nitride capacitance
+parameter real Vth_reset = 0.2;    // Reset threshold voltage
+
+real Vgs, Vds, Vth, Q_nitride;
+real Id;  
+  
+  analog begin
+      Vgs = V(G, S);  // Voltage between Gate and Source
+      Vds = V(D, S);  // Voltage between Drain and Source
+      if (Vgs > Vth_initial) 
+    	  Vth = Vth_initial + Vth_shift * (Q_nitride / C_nitride);
+      else 
+    	  Vth = Vth_initial;  
+      if (Vgs > Vth) 
+        if (Vds < (Vgs - Vth)) 
+      	  Id = C_ox * (Vgs - Vth) * Vds;
+        else         
+      	  Id = 0.5 * C_ox * (Vgs - Vth) ** 2;  
+      if (Vgs > Vth) 
+    	  Q_nitride = Q_nitride + (Id * 1e-12);  
+      else    
+    	  Q_nitride = Q_nitride - (Id * 1e-12); 
+      I(D) <+ Id;  
+  end
+endmodule

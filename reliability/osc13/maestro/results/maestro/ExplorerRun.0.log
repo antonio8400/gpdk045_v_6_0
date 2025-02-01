@@ -1,0 +1,17 @@
+Starting Single Run, Sweeps and Corners...
+
+Current time: Thu Jan 30 14:35:25 2025 
+Best design point: 1
+Design specs: 
+	Oscillator_analysis	corner	Nominal - 
+	RiseTime		1.375n	Yes
+	FallTime		5.498n	Yes
+Design parameters: 
+	vdc		2.5
+	cload		10f
+
+ExplorerRun.0
+Number of points completed: 1
+Number of simulation errors: 0
+ExplorerRun.0 completed. 
+Current time: Thu Jan 30 14:35:30 2025 

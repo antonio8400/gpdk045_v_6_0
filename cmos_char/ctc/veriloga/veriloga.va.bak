@@ -1,0 +1,67 @@
+`include "discipline.h"
+`include "constants.h"
+ 
+module SONOS_Cell (D, G, S, B);
+  
+  // Define terminals for the SONOS memory cell
+  inout D, G, S, B;  // Drain, Gate, Source, Bulk (Body)
+  
+  // Parameters for the SONOS cell (threshold voltages, capacitances, etc.)
+  parameter real Vth_initial = 0.3;    // Initial threshold voltage
+  parameter real Vth_shift = 0.1;      // Shift in threshold due to trapped charge
+  parameter real C_ox = 1e-8;          // Oxide capacitance per unit area in Farads
+  parameter real C_nitride = 5e-9;     // Nitride capacitance in Farads
+  parameter real Vth_reset = 0.2;      // Reset threshold (after charging)
+  
+  // Internal signal for modeling
+  real Vth, Q_nitride;
+  real Id;  // Drain current
+  
+  // Define the model behavior (charging and discharging effects)
+  analog 
+    // Calculate Vgs (Gate-Source Voltage)
+    real Vgs = V(G, S); // Gate-Source Voltage
+ 
+    // Calculate Vds (Drain-Source Voltage)
+    real Vds = V(D, S); // Drain-Source Voltage
+ 
+    // Calculate the threshold voltage considering charge trapping
+    if (Vgs > Vth_initial) begin
+      Vth = Vth_initial + Vth_shift * (Q_nitride / C_nitride); // Shifted threshold due to trapped charge
+    end
+    else begin
+      Vth = Vth_initial;  // Default threshold if no charge trapping
+    end
+ 
+    // Current-Voltage relation for MOSFET behavior
+    if (Vgs > Vth) begin
+      // MOSFET in saturation or linear region depending on Vds
+      if (Vds < (Vgs - Vth)) begin
+        // Linear region
+        Id = C_ox * (Vgs - Vth) * Vds;
+      end
+      else begin
+        // Saturation region
+        Id = 0.5 * C_ox * (Vgs - Vth)**2;
+      end
+    end
+    else begin
+      // Cut-off region (no current flow)
+      Id = 0;
+    end
+ 
+    // Charging or discharging of the nitride layer (simplified model)
+    if (Vgs > Vth) begin
+      // Charging the nitride layer when Vgs is high
+      Q_nitride = Q_nitride + (Id * 1e-12);  // Simplified charge accumulation (in Coulombs)
+    end
+    else begin
+      // Discharging the nitride layer when Vgs is low
+      Q_nitride = Q_nitride - (Id * 1e-12);  // Simplified charge removal
+    end
+ 
+    // Output the drain current Id (using current source definition)
+    I(D) <+ Id;
+  end
+ 
+endmodule

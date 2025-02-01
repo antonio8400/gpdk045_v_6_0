@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<setupdb version="7">history
+	<active>Active Setup</active>
+	<history>History
+		<historyentry assemblerOrExplorer="explorer" roOrView="view" runningOrFinished="finished">ExplorerRun.0
+			<timestamp>Jan 29 14:21:03 2025</timestamp>
+			<uuid>{a61b0b34-5309-4ae7-a119-88d6c3040be6}</uuid>
+			<locked>0</locked>
+			<mode>Single Run, Sweeps and Corners</mode>
+			<resultsname>/home/ayadav/PDK/gpdk045_v_6_0/cmos_char/nmos/maestro/results/maestro/$AXL_HISTORY_NAME.rdb</resultsname>
+			<simresults>$AXL_SETUPDB_DIR/results/maestro/$AXL_HISTORY_NAME.rdb</simresults>
+			<runlog>/home/ayadav/PDK/gpdk045_v_6_0/cmos_char/nmos/maestro/results/maestro/$AXL_HISTORY_NAME.log</runlog>
+			<runlogfile>$AXL_SETUPDB_DIR/results/maestro/$AXL_HISTORY_NAME.log</runlogfile>
+			<psfdir>/data/ayadav/simulation/cmos_char/nmos/maestro/results/maestro/$AXL_HISTORY_NAME</psfdir>
+			<simdir>$AXL_PROJECT_DIR/cmos_char/nmos/maestro/results/maestro/$AXL_HISTORY_NAME</simdir>
+		</historyentry>
+	</history>
+</setupdb>
